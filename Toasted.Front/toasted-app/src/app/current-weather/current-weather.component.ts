@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { Title } from '@angular/platform-browser';
 import { WeatherAPIService } from '../services/weather-api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { LowerCasePipe } from '@angular/common';
 
 @Component({
@@ -40,10 +40,16 @@ export class CurrentWeatherComponent implements OnInit {
     let country = this.currentWeatherForm.value.country;
     this.weatherService.getCoordinates(city, state, country).subscribe({
       next: (res) => {
+        console.log("stage",res)
         this.lat = res[0].lat;
         this.lon = res[0].lon;
-        const state = {lat:res[0].lat, lon:res[0].lon}
-        this.route.navigate([`current/${country}/${city}`, state])
+        const state:NavigationExtras = {
+          state:{
+            lat:res[0].lat, 
+            lon:res[0].lon
+          }
+        }
+        this.route.navigate([`current/${res[0].country}/${res[0].name}`], state)
         // this.getWeather(this.lat,this.lon)
       },
       error: (err) => console.log(err),

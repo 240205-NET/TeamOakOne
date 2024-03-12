@@ -1,1 +1,16 @@
+<navbar></navbar>
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <a routerLink="/current">Current Weather</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        {{ this.routerInfo[1] }}, {{ this.routerInfo[0] }}
+      </li>
+    </ol>
+  </nav>
+</div>
+
 <p>weather-details works!</p>

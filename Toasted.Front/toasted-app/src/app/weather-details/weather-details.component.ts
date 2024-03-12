@@ -10,13 +10,11 @@ import { WeatherAPIService } from 'src/app/services/weather-api.service';
 export class WeatherDetailsComponent implements OnInit {
   details !:any
   weatherInfo !: Array<any>;
+  routerInfo !:Array<any>
   constructor(private router:Router, private route:ActivatedRoute, private service:WeatherAPIService){}
   ngOnInit(): void {
-    this.route.params.subscribe(
-      para => {
-       this.details = para;
-      }
-    )
+    this.routerInfo = [this.route.snapshot.paramMap.get('country'),this.route.snapshot.paramMap.get('city')]
+    this.details = history.state;
     this.getWeather(this.details.lat, this.details.lon)
   }
   getWeather(lat:number, lon:number){
