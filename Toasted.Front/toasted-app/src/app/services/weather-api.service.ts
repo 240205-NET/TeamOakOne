@@ -99,7 +99,7 @@ export class WeatherAPIService {
 // }
 
   getCurrentWeather(lat: number, lon: number): Observable<any> {
-    let url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + environment.openWeatherKey;
+    let url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units='+ environment.units + '&appid=' + environment.openWeatherKey;
     return this.http.get(url);
   }
 

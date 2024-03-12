@@ -43,5 +43,5 @@ Thumbs.db
 
 #project files
 
-/environments.ts
-/environment.development.ts
+/src/environments.ts
+/src/environment.development.ts
