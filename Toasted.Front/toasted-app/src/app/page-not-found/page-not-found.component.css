@@ -1,0 +1,15 @@
+.error-type{
+    font-size: 80px;
+    font-weight: bold;
+    text-align: center;
+}
+.error-msg{
+    text-align: center;
+}
+.not-found{
+    margin-top: 10%;
+    border: 1px solid rgb(168, 218, 241);
+    padding: 5px 5px;
+    background-color: aliceblue;
+    box-shadow: 2px 2px 2px rgb(158, 179, 184);
+}

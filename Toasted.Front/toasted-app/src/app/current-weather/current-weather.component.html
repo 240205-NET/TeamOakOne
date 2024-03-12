@@ -1,1 +1,73 @@
-<p>current-weather works!</p>
+<navbar></navbar>
+<div class="container ">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a routerLink="currentWeatherForm" routerLinkActive="activeBreadcrumb">Current Weather</a></li>
+        </ol>
+      </nav>
+</div>
+<div class="container bg-light">
+  <div class="row">
+    
+    <div class="col-sm-8 col-md-6 row d-flex justify-content-center">
+      <form
+        class="border"
+        [formGroup]="currentWeatherForm"
+        class=""
+        (ngSubmit)="getCoordinate()"
+      >
+        <div class="form-group">
+          <label>City *</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="currentWeatherForm.controls['city'].touched && currentWeatherForm.controls['city'].errors?.['required']?'box-error':''"
+            formControlName="city"
+          />
+          <div
+            *ngIf="currentWeatherForm.controls['city'].touched && currentWeatherForm.controls['city'].errors?.['required']"
+            [ngClass]="classError ?? 'errs'"
+          >
+            <p>This field is required !!</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>State *</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="currentWeatherForm.controls['state'].touched && currentWeatherForm.controls['state'].errors?.['required']?'box-error':''"
+            formControlName="state"
+          />
+          <div
+            *ngIf="currentWeatherForm.controls['state'].touched && currentWeatherForm.controls['state'].errors?.['required']"
+            [ngClass]="classError ?? 'errs'"
+          >
+            <p>This field is required !!</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Country *</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="currentWeatherForm.controls['country'].touched && currentWeatherForm.controls['country'].errors?.['required']?'box-error':''"
+            formControlName="country"
+          />
+          <div
+            *ngIf="currentWeatherForm.controls['country'].touched && currentWeatherForm.controls['country'].errors?.['required']"
+            [ngClass]="classError ?? 'errs'"
+          >
+            <p>This field is required !!</p>
+          </div>
+        </div>
+        <div class="form-group mt-2">
+            <button class="btn btn-primary" type="submit" [disabled]="currentWeatherForm.invalid">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
