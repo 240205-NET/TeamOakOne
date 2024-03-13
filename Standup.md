@@ -1,65 +1,95 @@
+<!--
 Standup Template
-## Name ##
-#Worked on:#
-#Will be working on:#
-#Issues / Blockers:#
+<details>
+  <summary>example/date/time</summary> 
+   
+  ## Name1
+  ### Worked on:
+  - [x] thing 1
+  - [x] thing 2
+  ### Will be working on:
+  - [ ] something
+  - [ ] something else
+  ### Issues / Blockers:
+  - everything
+  - and nothing
+  
+  ## Name2 
+  ### Worked on:
+  - [x] thing 1
+  - [x] thing 2
+  ### Will be working on:
+  - [ ] something
+  - [ ] something else
+  ### Issues / Blockers:
+  - everything
+  - and nothing
+</details>
 
-Standup Meeting
-- 3/13/24
+<details>
+  <summary>next/date/time</summary>
+</details>
+-->
 
-## Arthur
-#Worked on:#
-- registering a new user
-#Will be working on:#
-- getting it to consistently build
-#Issues / Blockers:#
-- sometimes build fails
+# Standup Meeting
+<details>
+  <summary>3/13/24</summary>
 
-## Nabin
-#Worked on:#
-- current weather
-  got functionality mostly working
-#Will be working on:#
-- day night display
-- improving design
-#Issues / Blockers:#
-- no blockers
+    ## Arthurk
+    ### Worked on:
+    - [x] registering a new user
+    ### Will be working on:
+    - [ ] getting it to consistently build
+    ### Issues / Blockers:
+    - sometimes build fails
 
-## Michael
-#Worked on:#
-- logging in an existing user
-#Will be working on:#
-- improving style
-- translating template JS file to TS
-#Issues / Blockers:#
-- no blockers
+    ## Nabin
+    ### Worked on:
+    - [x] current weather
+      got functionality mostly working
+    ### Will be working on:
+    - [ ] day night display
+    - improving design
+    ### Issues / Blockers:
+    - no blockers
 
-## Jessirae
-#Worked on:#
-- understanding Toasted
-#Will be working on:#
-- Weather Widgets
-#Issues / Blockers:#
-- no blockers
+    ## Michael
+    ### Worked on:
+    - [x] logging in an existing user
+    ### Will be working on:
+    - [ ] improving style
+    - translating template JS file to TS
+    ### Issues / Blockers:
+    - no blockers
 
-## Hemanta
-#Worked on:#
-#Will be working on:#
-- Air Polution
-#Issues / Blockers:#
-- no blockers
+    ## Jessirae
+    ### Worked on:
+    - [x] understanding Toasted
+    ### Will be working on:
+    - [ ] Weather Widgets
+    ### Issues / Blockers:
+    - no blockers
 
-## Abdel
-#Worked on:#
-#Will be working on:#
-- Weather Widgets
-#Issues / Blockers:#
-- no blockers
+    ## Hemanta
+    ### Worked on:
+    ### Will be working on:
+    - [ ] Air Polution
+    ### Issues / Blockers:
+    - no blockers
 
-## Chris
-#Worked on:#
-- front end skeleton
-#Will be working on:#
-- integrating components
-#Issues / Blockers:#
-- no blockers
+    ## Abdel
+    ### Worked on:
+    ### Will be working on:
+    - [ ] Weather Widgets
+    ### Issues / Blockers:
+    - no blockers
+
+    ## Chris
+    ### Worked on:
+    - [x] front end skeleton
+    ### Will be working on:
+    - [ ] integrating components
+    ### Issues / Blockers:
+    - no blockers
+</details>
+
