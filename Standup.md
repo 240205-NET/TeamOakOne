@@ -1,5 +1,5 @@
 Standup Template
-## Name
+## Name ##
 #Worked on:#
 #Will be working on:#
 #Issues / Blockers:#
