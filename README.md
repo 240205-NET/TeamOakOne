@@ -1,7 +1,7 @@
 <!--
 Standup Template
-<details>
-<summary> example/date/time </summary>
+<details> //create collapsable section
+<summary> example/date/time </summary> //title the section
 <details>
 <summary> Name1 </summary>
   
