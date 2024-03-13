@@ -1,24 +1,47 @@
+<!--
 <h1>SCROLL DOWN TO SEE THE FORMS</h1>
+-->
 
-<h4>Login</h4>
+<!-- Header -->
+<header id="header">
+    <h1>Toasted</h1>
+    <p>Your personal weather app</p>
+</header>
+
+<!-- Login Form -->
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" id="username" formControlName="username" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" id="password" formControlName="password" class="form-control">
-  </div>
-  <button class="btn btn-primary" type="submit">Login</button>
-  <p id="inputveri" style="display:none" > wrong input</p>
+    <div class="form-group">
+      <input type="text" id="username" formControlName="username" class="form-control" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password">
+    </div>
+    <button class="btn btn-primary" type="submit">Login</button>
+    <p id="inputveri" style="display:none" > wrong input</p>
 </form>
 
+<!-- Footer -->
+<footer id="footer">
+    <ul class="icons">
+        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; Untitled.</li>
+            <li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
 
 
 
 
 
+<!--
 <hr style="height: 4px; background-color: black;">
 <h4>Get Location</h4>
 <p> needed for register form, location is a json object</p>
@@ -78,7 +101,7 @@
 
 </form>
 </div>
-    
+-->
 <hr style="height: 4px; background-color: black;">
 <h4>Get All Users</h4>
 
