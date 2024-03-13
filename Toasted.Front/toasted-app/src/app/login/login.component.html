@@ -11,12 +11,10 @@
 <!-- Login Form -->
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" id="username" formControlName="username" class="form-control">
+      <input type="text" id="username" formControlName="username" class="form-control" placeholder="Username">
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" formControlName="password" class="form-control">
+      <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password">
     </div>
     <button class="btn btn-primary" type="submit">Login</button>
     <p id="inputveri" style="display:none" > wrong input</p>
