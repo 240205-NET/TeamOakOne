@@ -28,7 +28,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent]

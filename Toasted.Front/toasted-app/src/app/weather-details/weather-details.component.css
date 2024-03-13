@@ -1,0 +1,50 @@
+.circular-weather-display {
+  height: 200px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.col-md-6.first-widget {
+  display: flex;
+  background: radial-gradient(black, transparent);
+  justify-content: center;
+}
+.day {
+  background: gold;
+  filter: drop-shadow(0 -6mm 8mm rgb(114, 13, 13));
+}
+
+.night {
+  background: linear-gradient(black, transparent);
+  color: white;
+}
+th {
+  font-weight: normal;
+}
+.content-main {
+  /* display: flex; */
+  margin-top: 4%;
+  /* background: linear-gradient(156deg, #1c4dbb, #af5959); */
+}
+.temp {
+  font-size: 20pt;
+  color: green;
+}
+.feels_like {
+  color: white;
+}
+.weather-details-component {
+  background: linear-gradient(45deg, #4267ff, transparent);
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+.cloud {
+  display: flex;
+  flex-direction: column;
+}
