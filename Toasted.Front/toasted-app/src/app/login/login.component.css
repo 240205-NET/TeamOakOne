@@ -89,8 +89,8 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 100%;
   vertical-align: baseline;
 }
 
@@ -133,10 +133,6 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-body {
-  -webkit-text-size-adjust: none;
 }
 
 mark {
@@ -656,7 +652,7 @@ header h6+p {
   text-rendering: auto;
   line-height: 1;
   text-transform: none !important;
-  font-family: 'Font Awesome 5 Free';
+  font-family: 'Font Awesome 5 Free', Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -664,16 +660,12 @@ header h6+p {
   display: none;
 }
 
-.icon:before {
-  line-height: inherit;
-}
-
 .icon.solid:before {
   font-weight: 900;
 }
 
 .icon.brands:before {
-  font-family: 'Font Awesome 5 Brands';
+  font-family: 'Font Awesome 5 Brands', Arial, Helvetica, sans-serif;
 }
 
 /* List */
@@ -750,12 +742,8 @@ form .message:before {
   text-rendering: auto;
   line-height: 1;
   text-transform: none !important;
-  font-family: 'Font Awesome 5 Free';
+  font-family: 'Font Awesome 5 Free', Arial, Helvetica, sans-serif;
   font-weight: 900;
-}
-
-form .message:before {
-  margin-right: 0.5em;
 }
 
 form .message.visible {
@@ -1003,7 +991,7 @@ input[type="radio"]+label:before {
   text-rendering: auto;
   line-height: 1;
   text-transform: none !important;
-  font-family: 'Font Awesome 5 Free';
+  font-family: 'Font Awesome 5 Free', Arial, Helvetica, sans-serif;
   font-weight: 900;
 }
 
@@ -1030,12 +1018,6 @@ input[type="radio"]:checked+label:before {
   border-color: #1cb495;
   color: #ffffff;
   content: '\f00c';
-}
-
-input[type="checkbox"]:focus+label:before,
-input[type="radio"]:focus+label:before {
-  border-color: #1cb495;
-  box-shadow: 0 0 0 2px #1cb495;
 }
 
 input[type="checkbox"]+label:before {
