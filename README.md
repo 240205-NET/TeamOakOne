@@ -1,33 +1,48 @@
 <!--
 Standup Template
 <details>
-  <summary>example/date/time</summary> 
-   
-  ## Name1
-  ### Worked on:
-  - [x] thing 1
-  - [x] thing 2
-  ### Will be working on:
-  - [ ] something
-  - [ ] something else
-  ### Issues / Blockers:
-  - everything
-  - and nothing
+<summary> example/date/time </summary>
+<details>
+<summary> Name1 </summary>
   
-  ## Name2 
-  ### Worked on:
-  - [x] thing 1
-  - [x] thing 2
-  ### Will be working on:
-  - [ ] something
-  - [ ] something else
-  ### Issues / Blockers:
-  - everything
-  - and nothing
+### Worked on:
+- [x] thing 1
+- [x] thing 2
+### Will be working on:
+- [ ] something
+- [ ] something else
+### Issues / Blockers:
+- everything
+- and nothing
 </details>
 
 <details>
-  <summary>next/date/time</summary>
+<summary> Name2 </summary>
+  
+### Worked on:
+- [x] thing 1
+- [x] thing 2
+### Will be working on:
+- [ ] something
+- [ ] something else
+### Issues / Blockers:
+- everything
+- and nothing
+</details>
+</details>
+
+<details>
+<summary>DATE</summary>
+<details>
+<summary>NAME</summary>
+  
+### Worked on:
+- [x] ITEM
+### Will be working on:
+- [ ] ITEM
+### Issues / Blockers:
+- ITEM
+</details>
 </details>
 -->
 
