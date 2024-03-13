@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { WeatherAPIService } from './weather-api.service';
 
 describe('WeatherAPIService', () => {
