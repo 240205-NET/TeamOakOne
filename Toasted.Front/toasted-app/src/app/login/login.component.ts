@@ -36,13 +36,14 @@ export class LoginComponent {
 
 
   }
-
+users: object[] = []
   onButtonClick() {
     this.authService.getAllUsers().subscribe((data) => {
-      const resultElement = document.getElementById('result');
-      if (resultElement) {
-        resultElement.innerHTML = JSON.stringify(data);
-      }
+      this.users = data
+      // const resultElement = document.getElementById('result');
+      // if (resultElement) {
+      //   resultElement.innerHTML = JSON.stringify(data);
+      // }
     });
   }
 
