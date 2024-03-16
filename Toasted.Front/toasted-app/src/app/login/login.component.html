@@ -106,4 +106,4 @@
 <h4>Get All Users</h4>
 
 <button class="mt-5" (click)="onButtonClick()">Get All Users</button>
-<p id="result"></p>
+<li *ngFor="let fields of users"> {{fields | json}} </li>
