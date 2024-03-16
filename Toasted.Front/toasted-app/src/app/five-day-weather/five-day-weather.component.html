@@ -1,1 +1,35 @@
-<p>five-day-weather works!</p>
+<div class="container mt-5">
+  <!-- Search Form -->
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter city name"
+      [(ngModel)]="cityName"
+    />
+    <button class="btn btn-primary" type="button" (click)="searchCity()">
+      Search
+    </button>
+  </div>
+
+  <!-- Weather Forecast Cards -->
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let forecast of forecastData">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title">{{ forecast.dt_txt | date : "medium" }}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            Temperature:
+            {{ kelvinToFahrenheit(forecast.main.temp) | number : "1.1-1" }}°F
+          </p>
+          <p class="card-text">
+            Weather: {{ forecast.weather[0].description }}
+          </p>
+          <!-- Add more forecast details as needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
