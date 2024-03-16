@@ -8,3 +8,9 @@
     background: linear-gradient(329deg, #00476f, transparent);
     height: 100%;
 }
+.form-container {
+    background: linear-gradient(34deg, #111337d9, transparent);
+    opacity: 0.9;
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
+}
