@@ -100,7 +100,10 @@
     <div *ngIf="WeatherData != null" class="float-child">
       <ng-container *ngFor="let airQuality of airQualities">
         <h2 *ngIf="WeatherData.list[0].main.aqi === airQuality.value">
-          The current Air Quality in {{ airPollutionForm.value.city }} is {{ airQuality.description }} (agi={{airQuality.value}}/5).
+          The Current Air Quality in {{ airPollutionForm.value.city }}: {{ airQuality.description }}.
+        </h2>
+        <h2 *ngIf="WeatherData.list[0].main.aqi === airQuality.value">
+          (Air Quality Index={{airQuality.value}}/5)
         </h2>
       </ng-container>
     </div>
