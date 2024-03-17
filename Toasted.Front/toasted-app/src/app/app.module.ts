@@ -10,6 +10,7 @@ import { FiveDayWeatherComponent } from './five-day-weather/five-day-weather.com
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AirPollutionComponent } from './air-pollution/air-pollution.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CurrentWeatherComponent,
     FiveDayWeatherComponent,
     HomeComponent,
+    AirPollutionComponent,
   ],
   imports: [
     BrowserModule,

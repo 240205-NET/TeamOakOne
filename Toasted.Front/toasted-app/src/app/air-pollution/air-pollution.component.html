@@ -1,0 +1,151 @@
+<div class="air-pollution-component">
+  <!-- <navbar></navbar> -->
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <a routerLink="/air-pollution" routerLinkActive="activeBreadcrumb"
+            >Air Pollution</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="container form-container col-sm-8 col-lg-5 col-md-6 pb-4 pt-4">
+    <div class="row">
+      <div class="form-box">
+        <form
+          [formGroup]="airPollutionForm"
+          (ngSubmit)="getCoordinate()"
+        >
+          <div class="form-group row">
+            <label class="col-sm-3">City *</label>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="airPollutionForm.controls['city'].touched && airPollutionForm.controls['city'].errors?.['required']?'box-error':''"
+                formControlName="city"
+              />
+              <div
+                *ngIf="airPollutionForm.controls['city'].touched && airPollutionForm.controls['city'].errors?.['required']"
+                [ngClass]="classError ? classError : 'errs'"
+              >
+                <p>This field is required !!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mt-2">
+            <label class="col-sm-3">State *</label>
+            <div class="col-sm-9">
+              <input
+              type="text"
+              class="form-control"
+              [ngClass]="airPollutionForm.controls['state'].touched && airPollutionForm.controls['state'].errors?.['required']?'box-error':''"
+              formControlName="state"
+              />
+              <div
+                *ngIf="airPollutionForm.controls['state'].touched && airPollutionForm.controls['state'].errors?.['required']"
+                [ngClass]="classError ? classError : 'errs'"
+              >
+                <p>This field is required !!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mt-2">
+            <label class="col-sm-3">Country *</label>
+            <div class="col-sm-9">
+                <input
+              type="text"
+              class="form-control"
+              [ngClass]="airPollutionForm.controls['country'].touched && airPollutionForm.controls['country'].errors?.['required']?'box-error':''"
+              formControlName="country"
+            />
+            <div
+              *ngIf="airPollutionForm.controls['country'].touched && airPollutionForm.controls['country'].errors?.['required']"
+              [ngClass]="classError ? classError : 'errs'"
+            >
+              <p>This field is required !!</p>
+            </div>
+          </div>
+          </div>
+          <div class="form-group mt-2">
+            <button
+              class="btn btn-primary search-button"
+              type="submit"
+              [disabled]="airPollutionForm.invalid"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <div class="container status-container">
+    <div *ngIf="WeatherData!=null" class="float-child ">
+      <h2 *ngIf="WeatherData?.list[0].main.aqi === 1">The current Air Quality in {{airPollutionForm.value.city}} is Good</h2>
+      <h2 *ngIf="WeatherData?.list[0].main.aqi === 2">The current Air Quality in {{airPollutionForm.value.city}} is Fair</h2>
+      <h2 *ngIf="WeatherData?.list[0].main.aqi === 3">The current Air Quality in {{airPollutionForm.value.city}} is Moderate</h2>
+      <h2 *ngIf="WeatherData?.list[0].main.aqi === 4">The current Air Quality in {{airPollutionForm.value.city}} is Poor</h2>
+      <h2 *ngIf="WeatherData?.list[0].main.aqi === 5">The current Air Quality in {{airPollutionForm.value.city}} is Very Poor</h2>
+    </div>
+  </div> -->
+
+  <div class="container status-container">
+    <div *ngIf="WeatherData != null" class="float-child">
+      <ng-container *ngFor="let airQuality of airQualities">
+        <h2 *ngIf="WeatherData.list[0].main.aqi === airQuality.value">
+          The current Air Quality in {{ airPollutionForm.value.city }} is {{ airQuality.description }} (agi={{airQuality.value}}/5).
+        </h2>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="WeatherData!=null" class=" form-container float-child ">
+    <h2 class = "center-content">All Air Pollutants</h2>
+    <table class=" form-container center-content float-res">
+      <tbody>
+        <tr>
+          <th scope="row">Carbon Monoxide (CO)</th>
+          <td>{{ WeatherData?.list[0].components.co }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Nitrogen Monoxide (NO)</th>
+          <td>{{ WeatherData?.list[0].components.no }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Nitrogen Dioxide (NO2)</th>
+          <td>{{ WeatherData?.list[0].components.no2 }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Ozone(O3)</th>
+          <td>{{ WeatherData?.list[0].components.o3}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Sulfur Dioxide(SO2)</th>
+            <td>{{ WeatherData?.list[0].components.so2}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Particulate matter less than 2.5 microns (PM2.5)</th>
+            <td>{{ WeatherData?.list[0].components.pm2_5}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Particulate matter less than 10 microns (PM10)</th>
+            <td>{{ WeatherData?.list[0].components.pm10}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Gaseous Ammonia (NH3)</th>
+            <td>{{ WeatherData?.list[0].components.nh3}}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+ 
