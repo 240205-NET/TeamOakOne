@@ -27,7 +27,6 @@
   .air-pollution-component {
     background: linear-gradient(329deg, #224558, black);
     height: 100%;
-    /* display: flex; */
     flex-direction: column;
     justify-content: center;
   }
