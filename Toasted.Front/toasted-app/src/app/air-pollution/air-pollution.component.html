@@ -110,8 +110,8 @@
   </div>
 
   <div *ngIf="WeatherData!=null" class=" form-container float-child ">
-    <h2 class = "center-content">All Air Pollutants</h2>
-    <table class=" form-container center-content float-res">
+    <h2 id="airpollution" class = "center-content">All Air Pollutants</h2>
+    <table class=" form-container center-content float-res" aria-describedby="airpollution">
       <tbody>
         <tr>
           <th scope="row">Carbon Monoxide (CO)</th>
