@@ -1,0 +1,47 @@
+.box-error {
+  border-color: red;
+}
+.errs {
+  color: darkgoldenrod;
+}
+.current-weather-component {
+  background: linear-gradient(329deg, #224558, black);
+  height: 100%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+.form-container {
+    background: linear-gradient(30deg, #111337d9, #00e0ff);
+    opacity: 0.9;
+    color: white;
+    filter: drop-shadow(10px 7px 13px black);
+    box-shadow: 1px 1px 9px deepskyblue;
+}
+.weather-button:disabled {
+    background: gray;
+    border: none;
+    display: flex;
+    width: 100pt;
+    text-align: center;
+    justify-content: center;
+    opacity: 0.5;
+}
+.weather-button {
+    width: 100pt;
+    text-align: center;
+    transition: 0.5s;
+}
+
+/* css for breadcrumb */
+li.breadcrumb-item.active {
+    color: white;
+  }
+  li.breadcrumb-item a {
+    color: aquamarine;
+    text-decoration: none;
+  }
+  li.breadcrumb-item.active::before {
+    color: aquamarine;
+  }
+  /* breadcrumb css ends here */

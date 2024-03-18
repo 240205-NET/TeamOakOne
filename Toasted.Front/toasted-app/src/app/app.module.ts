@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -10,7 +9,9 @@ import { FiveDayWeatherComponent } from './five-day-weather/five-day-weather.com
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AirPollutionComponent } from './air-pollution/air-pollution.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { WeatherDetailsComponent } from './weather-details/weather-details.component';
+import { GoogleMapsModule } from '@angular/google-maps';import { AirPollutionComponent } from './air-pollution/air-pollution.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +21,18 @@ import { AirPollutionComponent } from './air-pollution/air-pollution.component';
     CurrentWeatherComponent,
     FiveDayWeatherComponent,
     HomeComponent,
+    PageNotFoundComponent,
+    WeatherDetailsComponent,
     AirPollutionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleMapsModule,
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
