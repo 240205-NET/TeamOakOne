@@ -14,77 +14,74 @@
       </nav>
     </div>
   </div>
-    <div class="container form-container col-sm-8 col-lg-5 col-md-6 pb-4 pt-4">
-      <div class="row">
-        <div class="form-box">
-          <form
-            [formGroup]="currentWeatherForm"
-            (ngSubmit)="getCoordinate()"
-          >
-            <div class="form-group row">
-              <label class="col-sm-3">City *</label>
-              <div class="col-sm-9">
-                <input
-                  type="text"
-                  class="form-control"
-                  [ngClass]="currentWeatherForm.controls['city'].touched && currentWeatherForm.controls['city'].errors?.['required']?'box-error':''"
-                  formControlName="city"
-                />
-                <div
-                  *ngIf="currentWeatherForm.controls['city'].touched && currentWeatherForm.controls['city'].errors?.['required']"
-                  [ngClass]="classError ?? 'errs'"
-                >
-                  <p>This field is required !!</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row mt-2">
-              <label class="col-sm-3">State *</label>
-              <div class="col-sm-9">
-                <input
-                  type="text"
-                  class="form-control"
-                  [ngClass]="currentWeatherForm.controls['state'].touched && currentWeatherForm.controls['state'].errors?.['required']?'box-error':''"
-                  formControlName="state"
-                />
-                <div
-                  *ngIf="currentWeatherForm.controls['state'].touched && currentWeatherForm.controls['state'].errors?.['required']"
-                  [ngClass]="classError ?? 'errs'"
-                >
-                  <p>This field is required !!</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row mt-2">
-              <label class="col-sm-3">Country *</label>
-              <div class="col-sm-9">
-                <input
-                  type="text"
-                  class="form-control"
-                  [ngClass]="currentWeatherForm.controls['country'].touched && currentWeatherForm.controls['country'].errors?.['required']?'box-error':''"
-                  formControlName="country"
-                />
-                <div
-                  *ngIf="currentWeatherForm.controls['country'].touched && currentWeatherForm.controls['country'].errors?.['required']"
-                  [ngClass]="classError ?? 'errs'"
-                >
-                  <p>This field is required !!</p>
-                </div>
-              </div>
-            </div>
-            <div class="form-group mt-2">
-              <button
-                class="btn btn-primary weather-button"
-                type="submit"
-                [disabled]="currentWeatherForm.invalid"
+  <div class="container form-container col-sm-8 col-lg-5 col-md-6 pb-4 pt-4">
+    <div class="row">
+      <div class="form-box">
+        <form [formGroup]="currentWeatherForm" (ngSubmit)="getCoordinate()">
+          <div class="form-group row">
+            <label class="col-sm-3">City *</label>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="currentWeatherForm.controls['city'].touched && currentWeatherForm.controls['city'].errors?.['required']?'box-error':''"
+                formControlName="city"
+              />
+              <div
+                *ngIf="currentWeatherForm.controls['city'].touched && currentWeatherForm.controls['city'].errors?.['required']"
+                [ngClass]="classError ?? 'errs'"
               >
-                Search
-              </button>
+                <p>This field is required !!</p>
+              </div>
             </div>
-          </form>
-        </div>
+          </div>
+
+          <div class="form-group row mt-2">
+            <label class="col-sm-3">State *</label>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="currentWeatherForm.controls['state'].touched && currentWeatherForm.controls['state'].errors?.['required']?'box-error':''"
+                formControlName="state"
+              />
+              <div
+                *ngIf="currentWeatherForm.controls['state'].touched && currentWeatherForm.controls['state'].errors?.['required']"
+                [ngClass]="classError ?? 'errs'"
+              >
+                <p>This field is required !!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row mt-2">
+            <label class="col-sm-3">Country *</label>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="currentWeatherForm.controls['country'].touched && currentWeatherForm.controls['country'].errors?.['required']?'box-error':''"
+                formControlName="country"
+              />
+              <div
+                *ngIf="currentWeatherForm.controls['country'].touched && currentWeatherForm.controls['country'].errors?.['required']"
+                [ngClass]="classError ?? 'errs'"
+              >
+                <p>This field is required !!</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group mt-2">
+            <button
+              class="btn btn-primary weather-button"
+              type="submit"
+              [disabled]="currentWeatherForm.invalid"
+            >
+              Search
+            </button>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
 </div>

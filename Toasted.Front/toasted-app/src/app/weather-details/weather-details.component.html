@@ -3,17 +3,29 @@
   <div class="container-fluid">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/" routerLinkActive="activeBreadcrumb">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page">
-          <a routerLink="/current" routerLinkActive="activeBreadcrumb" [routerLinkActiveOptions]="{exact:true}">Current Weather</a>
+        <li class="breadcrumb-item">
+          <a routerLink="/" routerLinkActive="activeBreadcrumb">Home</a>
         </li>
-        <li class="breadcrumb-item"  aria-current="page">
-          <a routerLink="/current/{{routerInfo[0]}}/{{routerInfo[1]}}" routerLinkActive="activeBreadcrumb" [routerLinkActiveOptions]="{exact:true}" >{{ this.routerInfo[1] }}, {{ this.routerInfo[0] }}</a>
+        <li class="breadcrumb-item" aria-current="page">
+          <a
+            routerLink="/current"
+            routerLinkActive="activeBreadcrumb"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Current Weather</a
+          >
+        </li>
+        <li class="breadcrumb-item" aria-current="page">
+          <a
+            routerLink="/current/{{ routerInfo[0] }}/{{ routerInfo[1] }}"
+            routerLinkActive="activeBreadcrumb"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >{{ this.routerInfo[1] }}, {{ this.routerInfo[0] }}</a
+          >
         </li>
       </ol>
     </nav>
   </div>
-  <div class="container ">
+  <div class="container">
     <div class="row">
       <div class="col-md-12 row content-main">
         <div class="col-md-6 first-widget pt-4 pb-4">
@@ -32,8 +44,8 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <table class="table table-striped table-primary">
+        <div class="col-md-6 weather-table">
+          <table class="table table-striped custom-table">
             <tbody>
               <tr>
                 <th scope="row">Humidity</th>
