@@ -23,9 +23,21 @@
           <p class="card-text">
             Temperature:
             {{ kelvinToFahrenheit(forecast.main.temp) | number : "1.1-1" }}°F
+            <img
+              class="temp-icon"
+              src="assets/weatherImages/temperature-icon.png"
+              alt="Temperature Icon"
+            />
           </p>
           <p class="card-text">
             Weather: {{ forecast.weather[0].description }}
+            <img
+              class="weather-icon"
+              src="assets/weatherImages/{{
+                forecast.weather[0].description
+              }}.png"
+              alt="Weather Icon"
+            />
           </p>
           <!-- Add more forecast details as needed -->
         </div>
