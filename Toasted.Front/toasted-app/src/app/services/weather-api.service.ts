@@ -7,7 +7,7 @@ import { environment } from 'src/enviroment';
   providedIn: 'root'
 })
 export class WeatherAPIService {
-
+  openWeatherKey:string="959629c3080bddc2fe4095868c40e0fe"
   constructor(private http: HttpClient) { }
 
 
@@ -47,6 +47,10 @@ export class WeatherAPIService {
     return this.http.get(url);
   }
 
+  getCoordinatesByZip(zip:number, country?:string):Observable<any>{
+    let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip},${country}&appid=${environment.openWeatherKey}`
+    return this.http.get(url);
+  }
   //endpoint: Current Weather Data
   //https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
   //example response:
@@ -96,7 +100,7 @@ export class WeatherAPIService {
 // }
 
   getCurrentWeather(lat: number, lon: number): Observable<any> {
-    let url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + environment.openWeatherKey;
+    let url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units='+ environment.units + '&appid=' + environment.openWeatherKey;
     return this.http.get(url);
   }
 
