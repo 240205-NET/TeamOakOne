@@ -12,9 +12,10 @@ const routes: Routes = [
   { path: 'current', component: CurrentWeatherComponent },
   { path: 'current/:country/:city', component: WeatherDetailsComponent },
   { path: 'five', component: FiveDayWeatherComponent },
+  { path: 'air-pollution', component: AirPollutionComponent},
   { path: 'home', redirectTo:'/', pathMatch:'full' },
   { path: '**', component: PageNotFoundComponent },
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
