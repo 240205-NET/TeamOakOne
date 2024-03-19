@@ -11,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WeatherDetailsComponent } from './weather-details/weather-details.component';
-import { GoogleMapsModule } from '@angular/google-maps';
+import { GoogleMapsModule } from '@angular/google-maps';import { AirPollutionComponent } from './air-pollution/air-pollution.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     HomeComponent,
     PageNotFoundComponent,
     WeatherDetailsComponent,
+    AirPollutionComponent,
   ],
   imports: [
     BrowserModule,
