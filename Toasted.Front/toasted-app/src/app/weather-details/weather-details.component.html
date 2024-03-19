@@ -34,6 +34,21 @@
             <i class="fas fa-thin fa-cloud"> </i>
             <i class="fas fa-thin fa-cloud"> </i>
           </div>
+          <div class="cloud m-2">
+            <i class="fas fa-thin fa-cloud"> </i>
+            <i class="fas fa-thin fa-cloud"> </i>
+            <i class="fas fa-thin fa-cloud"> </i>
+          </div>
+          <div class="cloud m-1">
+            <i class="fas fa-thin fa-cloud"> </i>
+            <i class="fas fa-thin fa-cloud"> </i>
+            <i class="fas fa-thin fa-cloud"> </i>
+          </div>
+          <div class="cloud mb-4">
+            <i class="fas fa-thin fa-cloud"> </i>
+            <i class="fas fa-thin fa-cloud"> </i>
+            <i class="fas fa-thin fa-cloud"> </i>
+          </div>
           <div
             class="circular-weather-display"
             [ngClass]="weatherInfo.isDay ? 'day' : 'night'"
@@ -45,7 +60,12 @@
           </div>
         </div>
         <div class="col-md-6 weather-table">
-          <table class="table table-striped custom-table">
+          <table class="table table-hover table-striped custom-table">
+            <thead>
+              <tr>
+                <th scope="col" colspan="2">Weather Information</th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
                 <th scope="row">Humidity</th>
@@ -53,7 +73,7 @@
               </tr>
               <tr>
                 <th scope="row">Pressure</th>
-                <td>{{ weatherInfo.main?.pressure }}hPa</td>
+                <td>{{ weatherInfo.main?.pressure }} hPa</td>
               </tr>
               <tr>
                 <th scope="row">Sunrise</th>
@@ -72,7 +92,7 @@
                 <td>{{ weatherInfo.main?.temp_min }}&deg;c</td>
               </tr>
               <tr>
-                <th scope="row">Day Time</th>
+                <th scope="row">Day/Night</th>
                 <td>
                   <p *ngIf="weatherInfo?.isDay">Day</p>
                   <p *ngIf="!weatherInfo?.isDay">Night</p>
@@ -84,15 +104,17 @@
         <div class="col-md-12 ml-2 pb-4 pt-4 map-content">
           <google-map
             height="300px"
-            width="630px"
+            width="640px"
             [center]="center"
             [zoom]="zoom"
             (mapClick)="moveMap($event)"
             (mapMousemove)="move($event)"
           >
           </google-map>
-          <div>Latitude: {{ display?.lat }}</div>
-          <div>Longitude: {{ display?.lng }}</div>
+          <div class="coordinates">
+            <div>Latitude: {{ display?.lat | number : "1.2-2" }}</div>
+            <div>Longitude: {{ display?.lng | number : "1.2-2" }}</div>
+          </div>
         </div>
       </div>
     </div>
