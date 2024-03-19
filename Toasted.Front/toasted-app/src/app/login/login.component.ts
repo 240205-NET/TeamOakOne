@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../services/auth-service.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { WeatherAPIService } from '../services/weather-api.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     username: new FormControl(''),
@@ -120,86 +121,76 @@ users: object[] = []
 
   }
 
-  function() {
-    const $body: HTMLBodyElement | null = document.querySelector('body')
 
-    // Play initial animations on page load.
-    window.addEventListener('load', function () {
-      window.setTimeout(function () {
-        $body != null ? $body.classList.remove('is-preload') : console.log("error removing class: body is null");
-      },
-        100);
+  private $bgs: HTMLDivElement[] = [];
+  private pos = 0;
+  private lastPos = 0;
+  private delay = 6000;
+
+  ngOnInit(): void {
+    this.playInitialAnimations();
+    this.setupSlideshowBackground();
+  }
+
+  private playInitialAnimations(): void {
+    window.addEventListener('load', () => {
+      window.setTimeout(() => {
+        document.body.classList.remove('is-preload');
+      }, 100);
     });
+  }
 
-    // Slideshow Background.
-    // Settings.
-    const settings: { images: Record<string, string>; delay: number; } = {
-      // Images (in the format of 'url': 'alignment').
-      images: {
-        'images/bg01.jpg': 'center',
-        'images/bg02.jpg': 'center',
-        'images/bg03.jpg': 'center'
-      },
-      // Delay.
-      delay: 6000
+  private setupSlideshowBackground(): void {
+    const images: Record<string, string> = {
+      '/images/bg01.jpg': 'center',
+      '/images/bg02.jpg': 'center',
+      '/images/bg03.jpg': 'center'
     };
 
-
-    // Vars.
-    let pos: number = 0,
-      lastPos: number = 0,
-      $wrapper: HTMLDivElement,
-      $bgs: any[] = [],
-      $bg: HTMLDivElement,
-      k,
-      v;
-
-    // Create BG wrapper, BGs.
-    $wrapper = document.createElement('div');
+    const $wrapper = document.createElement('div');
     $wrapper.id = 'bg';
-    $body != null ? $body.appendChild($wrapper) : console.log("error appnding wrapper: body null");
+    document.body.appendChild($wrapper);
 
-    for (k in settings.images) {
-
-      // Create BG.
-      $bg = document.createElement('div');
-      $bg.style.backgroundImage = 'url("' + k + '")';
-      $bg.style.backgroundPosition = settings.images[k];
+    for (const k in images) {
+      const $bg = document.createElement('div');
+      // $bg.style.backgroundImage = `url("${k}")`;
+      $bg.style.backgroundImage = `${k}`;
+      console.log(`${k}`)
+      $bg.style.backgroundPosition = images[k];
       $wrapper.appendChild($bg);
-
-      // Add it to array.
-      $bgs.push($bg);
-
+      this.$bgs.push($bg);
     }
 
-    // Main loop.
-    $bgs[pos].classList.add('visible');
-    $bgs[pos].classList.add('top');
+    this.$bgs[this.pos].classList.add('visible');
+    this.$bgs[this.pos].classList.add('top');
 
-    // // Bail if we only have a single BG or the client doesn't support transitions.
-    // if ($bgs.length == 1
-    //   || !canUse('transition'))
-    //   return;
+    if (this.$bgs.length === 1 || !this.canUse('transition')) {
+      return;
+    }
 
-    window.setInterval(function () {
+    window.setInterval(() => {
+      this.lastPos = this.pos;
+      this.pos = (this.pos + 1) % this.$bgs.length;
 
-      lastPos = pos;
-      pos++;
+      this.$bgs[this.lastPos].classList.remove('top');
+      this.$bgs[this.pos].classList.add('visible');
+      this.$bgs[this.pos].classList.add('top');
 
-      // Wrap to beginning if necessary.
-      if (pos >= $bgs.length)
-        pos = 0;
+      window.setTimeout(() => {
+        this.$bgs[this.lastPos].classList.remove('visible');
+      }, this.delay / 2);
+    }, this.delay);
+  }
 
-      // Swap top images.
-      $bgs[lastPos].classList.remove('top');
-      $bgs[pos].classList.add('visible');
-      $bgs[pos].classList.add('top');
-
-      // Hide last image after a short delay.
-      window.setTimeout(function () {
-        $bgs[lastPos].classList.remove('visible');
-      }, settings.delay / 2);
-
-    }, settings.delay);
-  };
+  private canUse(feature: string): boolean {
+    let testBoolean: boolean
+    if(feature){
+      console.log("just checking this")
+      testBoolean = true
+    } else{
+      console.log("something else happened")
+      testBoolean = true
+    }
+    return testBoolean;
+  }
 }

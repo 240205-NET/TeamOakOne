@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class AuthServiceService {
 
-  baseUrl : string = 'https://project2-revtraining.azurewebsites.net/api/';
+  baseUrl : string = 'https://localhost:7019/api/';
   isLoggedIn: boolean = false;
 
   constructor(private http: HttpClient) { }
