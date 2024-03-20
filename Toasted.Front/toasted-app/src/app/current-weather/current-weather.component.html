@@ -29,7 +29,11 @@
               />
               <div
                 *ngIf="currentWeatherForm.controls['city'].touched && currentWeatherForm.controls['city'].errors?.['required']"
+<<<<<<< HEAD
                 [ngClass]="classError ?? 'errs'"
+=======
+                [ngClass]="classError"
+>>>>>>> main
               >
                 <p>This field is required !!</p>
               </div>
@@ -47,7 +51,11 @@
               />
               <div
                 *ngIf="currentWeatherForm.controls['state'].touched && currentWeatherForm.controls['state'].errors?.['required']"
+<<<<<<< HEAD
                 [ngClass]="classError ?? 'errs'"
+=======
+                [ngClass]="classError"
+>>>>>>> main
               >
                 <p>This field is required !!</p>
               </div>
@@ -65,7 +73,7 @@
               />
               <div
                 *ngIf="currentWeatherForm.controls['country'].touched && currentWeatherForm.controls['country'].errors?.['required']"
-                [ngClass]="classError ?? 'errs'"
+                [ngClass]="classError"
               >
                 <p>This field is required !!</p>
               </div>
@@ -85,3 +93,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

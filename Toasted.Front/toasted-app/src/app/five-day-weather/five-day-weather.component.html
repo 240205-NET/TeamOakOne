@@ -1,1 +1,57 @@
-<p>five-day-weather works!</p>
+<navbar></navbar>
+<div class="container mt-5">
+  <!-- Search Form -->
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter city name"
+      [(ngModel)]="cityName"
+    />
+    <button class="btn btn-primary" type="button" (click)="searchCity()">
+      Search
+    </button>
+  </div>
+
+  <!-- Weather Forecast Cards -->
+  <div class="row">
+    <div
+      class="col-md-6 mb-3"
+      *ngFor="let forecast of forecastData; let i = index"
+    >
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title">{{ forecast.dt_txt | date : "medium" }}</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="card-text">
+                <strong>Temperature:</strong>
+                {{
+                  kelvinToFahrenheit(forecast.main.temp) | number : "1.1-1"
+                }}°F
+                <img
+                  class="temp-icon"
+                  src="assets/weatherImages/temperature-icon.png"
+                  alt="Temperature Icon"
+                />
+                <span class="weather-description">
+                  <strong>Weather:</strong>
+                  {{ forecast.weather[0].description }}</span
+                >
+                <img
+                  class="weather-icon"
+                  src="assets/weatherImages/{{
+                    forecast.weather[0].description
+                  }}.png"
+                  alt="Weather Icon"
+                />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

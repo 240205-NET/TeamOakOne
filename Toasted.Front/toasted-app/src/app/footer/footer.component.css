@@ -1,0 +1,27 @@
+.container-fluid.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0789a6;
+    color: white;
+    height: 100px;
+    font-size: 14pt;
+}
+span {
+    color: #95daff;
+}
+span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.footer a {
+    color: #95daff;
+    text-decoration: none;
+}
+.footer p {
+    margin-bottom: 0;
+}
+.footer a:hover {
+    color: white !important;
+    text-decoration: underline;
+}

@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { AuthServiceService } from '../services/auth-service.service';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { WeatherAPIService } from '../services/weather-api.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./alt_login.component.css']
 })
 export class LoginComponent {
 
@@ -31,19 +32,19 @@ export class LoginComponent {
     country: new FormControl('')
   });
 
-  constructor(private openWeatherService: WeatherAPIService,private authService: AuthServiceService, private userService: UserService) {
+  constructor(private openWeatherService: WeatherAPIService, private authService: AuthServiceService, private userService: UserService) {
 
 
 
   }
-  
-
+users: object[] = []
   onButtonClick() {
     this.authService.getAllUsers().subscribe((data) => {
-      const resultElement = document.getElementById('result');
-      if (resultElement) {
-        resultElement.innerHTML = JSON.stringify(data);
-      }
+      this.users = data
+      // const resultElement = document.getElementById('result');
+      // if (resultElement) {
+      //   resultElement.innerHTML = JSON.stringify(data);
+      // }
     });
   }
 
@@ -54,69 +55,71 @@ export class LoginComponent {
     }
   }
 
-  onSubmit(){
+  onSubmit() {
     var values = this.loginForm.value;
-    if(values.username && values.password){
+    if (values.username && values.password) {
       this.authService.login(values.username, values.password).subscribe((data) => {
-        if(data){
+        if (data) {
           this.authService.toggleLogin();
           this.userService.setCurrentUser(data);
         }
-        else{
+        else {
           this.toggleLoginVerification();
           console.log('Login failed');
         }
       });
+      // HOTFIX ALWAYS LOG IN
+      this.authService.toggleLogin();
     }
-    else{
+    else {
       this.toggleLoginVerification();
       console.log('Invalid input');
     }
   }
 
-  onRegister(){
+  onRegister() {
     var values = this.registerForm.value;
-    if(values.username && values.password && values.firstName && values.lastName && values.email && values.location){
+    if (values.username && values.password && values.firstName && values.lastName && values.email && values.location) {
       this.authService.register(values.username, values.password, values.firstName, values.lastName, values.email, values.location).subscribe((data) => {
-        if(data){
+        if (data) {
           this.authService.toggleLogin();
           this.userService.setCurrentUser(data);
           console.log('Registration successful');
           console.log(data);
         }
-        else{
+        else {
           this.toggleLoginVerification();
           console.log('Registration failed');
         }
       });
     }
-    else{
+    else {
       this.toggleLoginVerification();
       console.log('Invalid input');
     }
   }
 
-  getLocation(){
+  getLocation() {
     var values = this.geoLocationForm.value;
-    
+
     const resultElement = document.getElementById('locationJson');
-    if(values.city && values.state && values.country){
+    if (values.city && values.state && values.country) {
       this.openWeatherService.getCoordinates(values.city, values.state, values.country).subscribe((data) => {
-        if(data){
+        if (data) {
           if (resultElement) {
             resultElement.innerHTML = JSON.stringify(data);
           }
         }
-        else{
-          if(resultElement){
-          resultElement.innerHTML = 'Invalid input';
+        else {
+          if (resultElement) {
+            resultElement.innerHTML = 'Invalid input';
           }
         }
       });
     }
-    else{
+    else {
       console.log('Invalid input');
     }
-    
+
   }
 }

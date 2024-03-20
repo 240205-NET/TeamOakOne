@@ -1,41 +1,49 @@
 <!--
 <h1>SCROLL DOWN TO SEE THE FORMS</h1>
 -->
+<!-- Login Form -->
+
 
 <!-- Header -->
-<header id="header">
-    <h1>Toasted</h1>
-    <p>Your personal weather app</p>
-</header>
 
-<!-- Login Form -->
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <input type="text" id="username" formControlName="username" class="form-control" placeholder="Username">
-    </div>
-    <div class="form-group">
-      <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password">
-    </div>
-    <button class="btn btn-primary" type="submit">Login</button>
-    <p id="inputveri" style="display:none" > wrong input</p>
-</form>
+<body class="body">
 
-<!-- Footer -->
-<footer id="footer">
-    <ul class="icons">
-        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-        <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-        <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
-    </ul>
-    <ul class="copyright">
-        <li>&copy; Untitled.</li>
+    <!-- Header -->
+    <header id="header">
+        <div class="header">
+            <h1>Toasted</h1>
+            <p>The weather app for all your weather needs <br />
+        </div>
+    </header>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form">
+            <div class="form-group">
+                <input type="text" id="username" formControlName="username" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password">
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
+            <p id="inputveri" style="display:none"> wrong input</p>
+        </div>
+    </form>
+
+    <!-- Footer -->
+    <!-- <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled.</li>
             <li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
-    </ul>
-</footer>
-
-<!-- Scripts -->
-<script src="assets/js/main.js"></script>
+        </ul>
+    </footer> -->
+</body>
 
 
 
@@ -106,4 +114,4 @@
 <h4>Get All Users</h4>
 
 <button class="mt-5" (click)="onButtonClick()">Get All Users</button>
-<p id="result"></p>
+<li *ngFor="let fields of users"> {{fields | json}} </li>
