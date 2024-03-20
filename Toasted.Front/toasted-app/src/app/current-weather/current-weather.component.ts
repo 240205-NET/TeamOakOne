@@ -13,7 +13,7 @@ import { LowerCasePipe } from '@angular/common';
 export class CurrentWeatherComponent implements OnInit {
   title = 'Current Weather Page';
   currentWeatherForm!: FormGroup;
-  classError!: string;
+  classError: string = 'errs';
   lat!: number;
   lon!: number;
   weatherData !:Array<any>;

@@ -13,6 +13,7 @@
   display: flex;
   background: linear-gradient(45deg, #3333d1, transparent);
   justify-content: center;
+  align-items: center;
 }
 .day {
   background: gold;
@@ -22,6 +23,7 @@
 .night {
   background: linear-gradient(black, transparent);
   color: white;
+  filter: drop-shadow(2px 4px 6px black);
 }
 th {
   font-weight: normal;
@@ -36,29 +38,36 @@ th {
   height: 100%;
 }
 .temp {
-  font-size: 20pt;
+  font-size: 30pt;
   color: green;
 }
 .feels_like {
+  font-size: 18px;
   color: white;
-  font-size: 12px;
 }
-
+.day > .feels_like {
+  color: rgb(166, 91, 166);
+}
 .weather-details-component {
   background: linear-gradient(329deg, #224558, black);
-  height: 100%;
-  max-height: 100%;
-  overflow: scroll;
+  /* height: 100%;
+  max-height: 100%; */
+  /* overflow: scroll; */
 }
 .cloud {
   display: flex;
   flex-direction: column;
+  filter: drop-shadow(2px 4px 6px black);
 }
 i.fas.fa-thin.fa-cloud {
   font-size: 35px;
-  color: #807a7a53;
+  color: #8badc2;
   position: relative;
-  animation: mymove 8s infinite;
+  /* animation: mymove 8s infinite; */
+  animation-name: mymove;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 @keyframes mymove {
@@ -66,9 +75,9 @@ i.fas.fa-thin.fa-cloud {
     top: 0px;
     left: 0px;
   }
-  25% {
+  100% {
     top: 0px;
-    left: 100px;
+    left: 500px;
   }
 }
 li.breadcrumb-item.active {
@@ -84,4 +93,42 @@ li.breadcrumb-item.active::before {
 .weather-table {
   padding: 8px 3px 0 4px;
   filter: drop-shadow(2px 4px 6px #0b141a);
+}
+thead th {
+  text-align: center;
+  font-size: 16pt;
+  background: #0d212c !important;
+  color: white !important;
+}
+tbody td,
+th {
+  background: #364a54 !important;
+}
+tbody th {
+  color: white !important;
+}
+tbody td {
+  color: green !important;
+}
+.coordinates > div {
+  margin-right: 15px;
+}
+.coordinates {
+  display: inline-flex;
+  background: #050606;
+  color: white;
+  filter: drop-shadow(2px 4px 6px black);
+  margin: 4px 4px;
+}
+
+.basic-info {
+  background: #3083b0;
+  padding: 2px 2px;
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  filter: drop-shadow(2px 4px 6px white);
+}
+.group-speed p {
+  display: inline;
 }
