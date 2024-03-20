@@ -14,6 +14,9 @@ import { WeatherDetailsComponent } from './weather-details/weather-details.compo
 import { GoogleMapsModule } from '@angular/google-maps';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './footer/footer.component';
+import { AirPollutionComponent } from './air-pollution/air-pollution.component';
+import { GeocodingComponent } from './geocoding/geocoding.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     PageNotFoundComponent,
     WeatherDetailsComponent,
+    AirPollutionComponent,
+    GeocodingComponent,
+    MapComponent,
     FooterComponent,
   ],
   imports: [
