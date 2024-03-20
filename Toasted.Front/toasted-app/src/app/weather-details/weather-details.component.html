@@ -1,0 +1,100 @@
+<navbar></navbar>
+<div class="weather-details-component">
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/" routerLinkActive="activeBreadcrumb">Home</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">
+          <a
+            routerLink="/current"
+            routerLinkActive="activeBreadcrumb"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Current Weather</a
+          >
+        </li>
+        <li class="breadcrumb-item" aria-current="page">
+          <a
+            routerLink="/current/{{ routerInfo[0] }}/{{ routerInfo[1] }}"
+            routerLinkActive="activeBreadcrumb"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >{{ this.routerInfo[1] }}, {{ this.routerInfo[0] }}</a
+          >
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 row content-main">
+        <div class="col-md-6 first-widget pt-4 pb-4">
+          <div class="cloud">
+            <i class="fas fa-thin fa-cloud"> </i>
+            <i class="fas fa-thin fa-cloud"> </i>
+            <i class="fas fa-thin fa-cloud"> </i>
+          </div>
+          <div
+            class="circular-weather-display"
+            [ngClass]="weatherInfo.isDay ? 'day' : 'night'"
+          >
+            <div class="temp">{{ weatherInfo.main?.temp }}&deg;C</div>
+            <div class="feels_like">
+              Feels Like {{ weatherInfo.main?.feels_like }}&deg;
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 weather-table">
+          <table class="table table-striped custom-table">
+            <tbody>
+              <tr>
+                <th scope="row">Humidity</th>
+                <td>{{ weatherInfo.main?.humidity }}%</td>
+              </tr>
+              <tr>
+                <th scope="row">Pressure</th>
+                <td>{{ weatherInfo.main?.pressure }}hPa</td>
+              </tr>
+              <tr>
+                <th scope="row">Sunrise</th>
+                <td>{{ weatherInfo.sunrise_time }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Sunset</th>
+                <td>{{ weatherInfo.sunset_time }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Max Temperature</th>
+                <td>{{ weatherInfo.main?.temp_max }}&deg;c</td>
+              </tr>
+              <tr>
+                <th scope="row">Min Temperature</th>
+                <td>{{ weatherInfo.main?.temp_min }}&deg;c</td>
+              </tr>
+              <tr>
+                <th scope="row">Day Time</th>
+                <td>
+                  <p *ngIf="weatherInfo?.isDay">Day</p>
+                  <p *ngIf="!weatherInfo?.isDay">Night</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-12 ml-2 pb-4 pt-4 map-content">
+          <google-map
+            height="300px"
+            width="630px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)"
+          >
+          </google-map>
+          <div>Latitude: {{ display?.lat }}</div>
+          <div>Longitude: {{ display?.lng }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
