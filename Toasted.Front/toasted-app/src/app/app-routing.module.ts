@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { WeatherDetailsComponent } from './weather-details/weather-details.component';
 import { AirPollutionComponent } from './air-pollution/air-pollution.component';
 import { GeocodingComponent } from './geocoding/geocoding.component';
+import { WeatherWidgetsComponent } from './weather-widgets/weather-widgets.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'current', component: CurrentWeatherComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'five', component: FiveDayWeatherComponent },
   { path: 'air-pollution', component: AirPollutionComponent},
   { path: 'geocoding', component: GeocodingComponent},
+  { path: 'widget', component: WeatherWidgetsComponent},
   { path: 'home', redirectTo:'/', pathMatch:'full' },
   { path: '**', component: PageNotFoundComponent },
   ];

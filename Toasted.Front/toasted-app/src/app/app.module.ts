@@ -17,6 +17,10 @@ import { FooterComponent } from './footer/footer.component';
 import { AirPollutionComponent } from './air-pollution/air-pollution.component';
 import { GeocodingComponent } from './geocoding/geocoding.component';
 import { MapComponent } from './map/map.component';
+import { WeatherWidgetsComponent } from './weather-widgets/weather-widgets.component';
+import { WidgetOneComponent } from './widget-one/widget-one.component';
+import { WidgetTwoComponent } from './widget-two/widget-two.component';
+import { WidgetThreeComponent } from './widget-three/widget-three.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,10 @@ import { MapComponent } from './map/map.component';
     GeocodingComponent,
     MapComponent,
     FooterComponent,
+    WeatherWidgetsComponent,
+    WidgetOneComponent,
+    WidgetTwoComponent,
+    WidgetThreeComponent,
   ],
   imports: [
     BrowserModule,
