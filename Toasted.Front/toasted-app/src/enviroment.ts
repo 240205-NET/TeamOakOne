@@ -6,6 +6,3 @@ export const environment = {
     units:"metric", //imperial = Fahrenheit and metric for celcius
     googleApi: ''
 };
-
-
-    
