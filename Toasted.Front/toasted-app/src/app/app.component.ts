@@ -9,6 +9,8 @@ import { AuthServiceService } from './services/auth-service.service';
 })
 export class AppComponent {
   title = 'toasted-app';
-
-  constructor(public authService: AuthServiceService) { }
+  
+  constructor(public authService: AuthServiceService) {
+    
+   }
 }
