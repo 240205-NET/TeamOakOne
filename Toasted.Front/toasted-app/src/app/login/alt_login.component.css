@@ -20,6 +20,9 @@
     margin-left: 5%;
     margin-top: 50px;
     width: 50%;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 10px;
 
 }
 
@@ -29,12 +32,6 @@
     color: white;
     filter: drop-shadow(10px 7px 13px black);
     box-shadow: 1px 1px 9px deepskyblue;
-}
-
-.form{
-    max-width: 300px;
-    padding: 10px;
-    border-radius: 10px;
 }
 
 .form-group{
