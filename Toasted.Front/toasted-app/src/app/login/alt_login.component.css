@@ -17,13 +17,14 @@
     color: white;
     filter: drop-shadow(10px 7px 13px black);
     box-shadow: 1px 1px 9px deepskyblue;
-    margin-left: 5%;
     margin-top: 50px;
+    margin-inline: auto;
     width: 50%;
     max-width: 300px;
     padding: 10px;
     border-radius: 10px;
-
+    display: flex;
+    flex-direction: column;
 }
 
 .button {
