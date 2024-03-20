@@ -11,11 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WeatherDetailsComponent } from './weather-details/weather-details.component';
-import {GoogleMapsModule } from '@angular/google-maps';
-import { AirPollutionComponent } from './air-pollution/air-pollution.component';
-import { GeocodingComponent } from './geocoding/geocoding.component';
-import { MapComponent } from './map/map.component';
-
+import { GoogleMapsModule } from '@angular/google-maps';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './footer/footer.component';
 
@@ -39,7 +35,6 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
     FontAwesomeModule,
     GoogleMapsModule
   ],
