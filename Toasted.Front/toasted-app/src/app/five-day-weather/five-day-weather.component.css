@@ -1,6 +1,5 @@
 /* styles.css */
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~weather-icons/css/weather-icons.min.css";
 
 .temp-icon {
   width: 35pt; /* Adjust the width to your preference */
