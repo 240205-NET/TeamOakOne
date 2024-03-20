@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environment';
-
+import { environment } from 'src/environmnet';
 @Injectable({
   providedIn: 'root'
 })
@@ -99,10 +98,10 @@ export class WeatherAPIService {
 //     "cod": 200
 // }
 
-  getCurrentWeather(lat: number, lon: number): Observable<any> {
-    let url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units='+ environment.units + '&appid=' + environment.openWeatherKey;
-    return this.http.get(url);
-  }
+getCurrentWeather(lat: number, lon: number): Observable<any> {
+  let url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + 'e424f4c1560242b27589d8d011840f9a';
+  return this.http.get(url);
+}
 
   //endpoint: 5 Day Weather Forecast
   //https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}

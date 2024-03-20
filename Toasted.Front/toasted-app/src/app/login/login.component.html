@@ -6,28 +6,32 @@
 
 <!-- Header -->
 
-<body class="is-preload">
+<body class="body">
 
     <!-- Header -->
     <header id="header">
-        <h1>Toasted</h1>
-        <p>The weather app for all your weather needs <br />
+        <div class="header">
+            <h1>Toasted</h1>
+            <p>The weather app for all your weather needs <br />
+        </div>
     </header>
 
     <!-- Login Form -->
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <input type="text" id="username" formControlName="username" class="form-control" placeholder="Username">
+        <div class="form">
+            <div class="form-group">
+                <input type="text" id="username" formControlName="username" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password">
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
+            <p id="inputveri" style="display:none"> wrong input</p>
         </div>
-        <div class="form-group">
-            <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password">
-        </div>
-        <button class="btn btn-primary" type="submit">Login</button>
-        <p id="inputveri" style="display:none"> wrong input</p>
     </form>
 
     <!-- Footer -->
-    <footer id="footer">
+    <!-- <footer id="footer">
         <ul class="icons">
             <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
             <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -38,7 +42,7 @@
             <li>&copy; Untitled.</li>
             <li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
         </ul>
-    </footer>
+    </footer> -->
 </body>
 
 

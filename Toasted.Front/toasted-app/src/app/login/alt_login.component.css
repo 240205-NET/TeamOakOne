@@ -1,0 +1,42 @@
+.header {
+    background: linear-gradient(45deg, rebeccapurple, cadetblue);
+    color: white;
+    
+}
+
+.body {
+    background: linear-gradient(329deg, #224558, black);
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form {
+    background: linear-gradient(30deg, #111337d9, #00e0ff);
+    opacity: 0.9;
+    color: white;
+    filter: drop-shadow(10px 7px 13px black);
+    box-shadow: 1px 1px 9px deepskyblue;
+    margin-left: 5%;
+    margin-top: 50px;
+    width: 50%;
+
+}
+
+.button {
+    background: linear-gradient(30deg, #111337d9, #00e0ff);
+    opacity: 0.9;
+    color: white;
+    filter: drop-shadow(10px 7px 13px black);
+    box-shadow: 1px 1px 9px deepskyblue;
+}
+
+.form{
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.form-group{
+    padding: 3px;
+}

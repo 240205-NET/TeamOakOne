@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { AuthServiceService } from '../services/auth-service.service';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { WeatherAPIService } from '../services/weather-api.service';
 
@@ -8,9 +8,9 @@ import { WeatherAPIService } from '../services/weather-api.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./alt_login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   loginForm = new FormGroup({
     username: new FormControl(''),
@@ -68,6 +68,8 @@ users: object[] = []
           console.log('Login failed');
         }
       });
+      // HOTFIX ALWAYS LOG IN
+      this.authService.toggleLogin();
     }
     else {
       this.toggleLoginVerification();
@@ -122,75 +124,75 @@ users: object[] = []
   }
 
 
-  private $bgs: HTMLDivElement[] = [];
-  private pos = 0;
-  private lastPos = 0;
-  private delay = 6000;
+  // private $bgs: HTMLDivElement[] = [];
+  // private pos = 0;
+  // private lastPos = 0;
+  // private delay = 6000;
 
-  ngOnInit(): void {
-    this.playInitialAnimations();
-    this.setupSlideshowBackground();
-  }
+  // ngOnInit(): void {
+  //   this.playInitialAnimations();
+  //   this.setupSlideshowBackground();
+  // }
 
-  private playInitialAnimations(): void {
-    window.addEventListener('load', () => {
-      window.setTimeout(() => {
-        document.body.classList.remove('is-preload');
-      }, 100);
-    });
-  }
+  // private playInitialAnimations(): void {
+  //   window.addEventListener('load', () => {
+  //     window.setTimeout(() => {
+  //       document.body.classList.remove('is-preload');
+  //     }, 100);
+  //   });
+  // }
 
-  private setupSlideshowBackground(): void {
-    const images: Record<string, string> = {
-      '/images/bg01.jpg': 'center',
-      '/images/bg02.jpg': 'center',
-      '/images/bg03.jpg': 'center'
-    };
+  // private setupSlideshowBackground(): void {
+  //   const images: Record<string, string> = {
+  //     '/images/bg01.jpg': 'center',
+  //     '/images/bg02.jpg': 'center',
+  //     '/images/bg03.jpg': 'center'
+  //   };
 
-    const $wrapper = document.createElement('div');
-    $wrapper.id = 'bg';
-    document.body.appendChild($wrapper);
+  //   const $wrapper = document.createElement('div');
+  //   $wrapper.id = 'bg';
+  //   document.body.appendChild($wrapper);
 
-    for (const k in images) {
-      const $bg = document.createElement('div');
-      // $bg.style.backgroundImage = `url("${k}")`;
-      $bg.style.backgroundImage = `${k}`;
-      console.log(`${k}`)
-      $bg.style.backgroundPosition = images[k];
-      $wrapper.appendChild($bg);
-      this.$bgs.push($bg);
-    }
+  //   for (const k in images) {
+  //     const $bg = document.createElement('div');
+  //     // $bg.style.backgroundImage = `url("${k}")`;
+  //     $bg.style.backgroundImage = `${k}`;
+  //     console.log(`${k}`)
+  //     $bg.style.backgroundPosition = images[k];
+  //     $wrapper.appendChild($bg);
+  //     this.$bgs.push($bg);
+  //   }
 
-    this.$bgs[this.pos].classList.add('visible');
-    this.$bgs[this.pos].classList.add('top');
+  //   this.$bgs[this.pos].classList.add('visible');
+  //   this.$bgs[this.pos].classList.add('top');
 
-    if (this.$bgs.length === 1 || !this.canUse('transition')) {
-      return;
-    }
+  //   if (this.$bgs.length === 1 || !this.canUse('transition')) {
+  //     return;
+  //   }
 
-    window.setInterval(() => {
-      this.lastPos = this.pos;
-      this.pos = (this.pos + 1) % this.$bgs.length;
+  //   window.setInterval(() => {
+  //     this.lastPos = this.pos;
+  //     this.pos = (this.pos + 1) % this.$bgs.length;
 
-      this.$bgs[this.lastPos].classList.remove('top');
-      this.$bgs[this.pos].classList.add('visible');
-      this.$bgs[this.pos].classList.add('top');
+  //     this.$bgs[this.lastPos].classList.remove('top');
+  //     this.$bgs[this.pos].classList.add('visible');
+  //     this.$bgs[this.pos].classList.add('top');
 
-      window.setTimeout(() => {
-        this.$bgs[this.lastPos].classList.remove('visible');
-      }, this.delay / 2);
-    }, this.delay);
-  }
+  //     window.setTimeout(() => {
+  //       this.$bgs[this.lastPos].classList.remove('visible');
+  //     }, this.delay / 2);
+  //   }, this.delay);
+  // }
 
-  private canUse(feature: string): boolean {
-    let testBoolean: boolean
-    if(feature){
-      console.log("just checking this")
-      testBoolean = true
-    } else{
-      console.log("something else happened")
-      testBoolean = true
-    }
-    return testBoolean;
-  }
+  // private canUse(feature: string): boolean {
+  //   let testBoolean: boolean
+  //   if(feature){
+  //     console.log("just checking this")
+  //     testBoolean = true
+  //   } else{
+  //     console.log("something else happened")
+  //     testBoolean = true
+  //   }
+  //   return testBoolean;
+  // }
 }
