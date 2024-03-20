@@ -1,0 +1,31 @@
+.error-type {
+  font-size: 80px;
+  font-weight: bold;
+  text-align: center;
+}
+.error-msg {
+  text-align: center;
+}
+.not-found {
+  margin-top: 10%;
+  border: 1px solid rgb(227 217 233);
+  padding: 5px 5px;
+  background: linear-gradient(182deg, #210b45, transparent);
+  box-shadow: 2px 2px 2px rgb(158, 179, 184);
+  filter: drop-shadow(2px 4px 6px black);
+  color: white;
+  font-family: cursive, sans-serif;
+}
+button.btn.col-sm-3 {
+    background: radial-gradient(#eb76ff, transparent);
+    filter: drop-shadow(2px 4px 6px black);
+    border: 1px solid #656365;
+    box-shadow: 4px 0px 11px #9728ac;
+    transition: 0.3s;
+}
+
+button.btn.btn-secondary.col-sm-3:hover {
+    color: #c9ff00;
+    font-size: 17px;
+}
+

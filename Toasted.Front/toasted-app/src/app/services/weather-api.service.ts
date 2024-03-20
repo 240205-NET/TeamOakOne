@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/enviroment';
-
+import { environment } from 'src/environmnet';
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherAPIService {
-
+  openWeatherKey:string="959629c3080bddc2fe4095868c40e0fe"
   constructor(private http: HttpClient) { }
 
 
@@ -47,6 +46,10 @@ export class WeatherAPIService {
     return this.http.get(url);
   }
 
+  getCoordinatesByZip(zip:number, country?:string):Observable<any>{
+    let url = `https://api.openweathermap.org/geo/1.0/zip?zip=${zip},${country}&appid=${environment.openWeatherKey}`
+    return this.http.get(url);
+  }
   //endpoint: Current Weather Data
   //https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
   //example response:
@@ -95,10 +98,10 @@ export class WeatherAPIService {
 //     "cod": 200
 // }
 
-  getCurrentWeather(lat: number, lon: number): Observable<any> {
-    let url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + environment.openWeatherKey;
-    return this.http.get(url);
-  }
+getCurrentWeather(lat: number, lon: number): Observable<any> {
+  let url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + 'e424f4c1560242b27589d8d011840f9a';
+  return this.http.get(url);
+}
 
   //endpoint: 5 Day Weather Forecast
   //https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
@@ -243,6 +246,11 @@ export class WeatherAPIService {
 
   getForecastAirPollution(lat: number, lon: number): Observable<any> {
     let url = 'https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=' + lat + '&lon=' + lon + '&appid=' + environment.openWeatherKey;
+    return this.http.get(url);
+  }
+
+  getGeoCoding(city:String, state:String,country:String): Observable<any> {
+    let url = 'http://api.openweathermap.org/geo/1.0/direct?q='+city+',' +state+','+country+'&limit=1&appid='+ environment.openWeatherKey;
     return this.http.get(url);
   }
 }

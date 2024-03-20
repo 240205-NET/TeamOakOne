@@ -10,7 +10,10 @@ export class AuthServiceService {
   baseUrl: string = 'https://project2-revtraining.azurewebsites.net/api/';
   isLoggedIn: boolean = true;
 
-  constructor(private http: HttpClient) {}
+  baseUrl : string = 'https://localhost:7019/api/';
+  isLoggedIn: boolean = false;
+
+  constructor(private http: HttpClient) { }
 
   toggleLogin() {
     console.log('Login status: ' + this.isLoggedIn);
