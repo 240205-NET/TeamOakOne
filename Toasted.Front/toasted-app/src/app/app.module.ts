@@ -8,7 +8,7 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { FiveDayWeatherComponent } from './five-day-weather/five-day-weather.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WeatherDetailsComponent } from './weather-details/weather-details.component';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -39,9 +39,10 @@ import { MapComponent } from './map/map.component';
     HttpClientModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    FormsModule,
   ],
   providers: [Title],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
