@@ -12,6 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WeatherDetailsComponent } from './weather-details/weather-details.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './footer/footer.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +25,15 @@ import { GoogleMapsModule } from '@angular/google-maps';
     HomeComponent,
     PageNotFoundComponent,
     WeatherDetailsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    GoogleMapsModule,
+    FontAwesomeModule,
+    GoogleMapsModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

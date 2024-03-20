@@ -1,5 +1,5 @@
 <navbar></navbar>
-<div class="weather-details-component">
+<div class="weather-details-component pb-4">
   <div class="container-fluid">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -28,7 +28,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 row content-main">
-        <div class="col-md-6 first-widget pt-4 pb-4">
+        <div class="col-md-6 col-sm-4 first-widget pt-4 pb-4">
+          
           <div class="cloud">
             <i class="fas fa-thin fa-cloud"> </i>
             <i class="fas fa-thin fa-cloud"> </i>
@@ -51,12 +52,23 @@
           </div>
           <div
             class="circular-weather-display"
-            [ngClass]="weatherInfo.isDay ? 'day' : 'night'"
+            [ngClass]="isDay ? 'day' : 'night'"
           >
             <div class="temp">{{ weatherInfo.main?.temp }}&deg;C</div>
             <div class="feels_like">
               Feels Like {{ weatherInfo.main?.feels_like }}&deg;
             </div>
+          </div>
+          <div class="basic-info">
+            <div class="group-speed">
+              <p><i class="fas fa-thin fa-compass">{{weatherInfo.wind.speed}}m/s 
+                <p *ngIf="weatherInfo.wind.deg>0 && weatherInfo.wind.deg <=90">E</p>
+                <p *ngIf="weatherInfo.wind.deg>90 && weatherInfo.wind.deg<= 180">S</p>
+                <p *ngIf="weatherInfo.wind.deg>180 && weatherInfo.wind.deg<= 270">W</p>
+                <p *ngIf="weatherInfo.wind.deg>270 && weatherInfo.wind.deg<= 360">N</p>
+                </i> </p>
+            </div>
+            <p>{{weatherInfo.weather[0].description}}</p>
           </div>
         </div>
         <div class="col-md-6 weather-table">
@@ -92,10 +104,17 @@
                 <td>{{ weatherInfo.main?.temp_min }}&deg;c</td>
               </tr>
               <tr>
+                <th scope="row">Visibility</th>
+                <td>
+                  <p>{{weatherInfo.visibility/1000|number:'1.1-2'}}km</p>
+                 
+                </td>
+              </tr>
+              <tr>
                 <th scope="row">Day/Night</th>
                 <td>
-                  <p *ngIf="weatherInfo?.isDay">Day</p>
-                  <p *ngIf="!weatherInfo?.isDay">Night</p>
+                  <p *ngIf="isDay">Day</p>
+                  <p *ngIf="!isDay">Night</p>
                 </td>
               </tr>
             </tbody>
@@ -103,8 +122,8 @@
         </div>
         <div class="col-md-12 ml-2 pb-4 pt-4 map-content">
           <google-map
-            height="300px"
-            width="640px"
+            height="400px"
+            width="100%"
             [center]="center"
             [zoom]="zoom"
             (mapClick)="moveMap($event)"
@@ -120,3 +139,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>
