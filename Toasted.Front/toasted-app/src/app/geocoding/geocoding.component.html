@@ -1,0 +1,117 @@
+<div class="air-pollution-component">
+    <navbar></navbar>
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a routerLink="/air-pollution" routerLinkActive="activeBreadcrumb"
+              >Geocoding</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  
+    <div class="container form-container col-sm-8 col-lg-5 col-md-6 pb-4 pt-4">
+      <div class="row">
+        <div class="form-box">
+          <form
+            [formGroup]="geocodingForm"
+            (ngSubmit)="getGeocoding()"
+          >
+            <div class="form-group row">
+              <label class="col-sm-3">City *</label>
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  [ngClass]="geocodingForm.controls['city'].touched && geocodingForm.controls['city'].errors?.['required']?'box-error':''"
+                  formControlName="city"
+                />
+                <div
+                  *ngIf="geocodingForm.controls['city'].touched && geocodingForm.controls['city'].errors?.['required']"
+                  [ngClass]="classError ? classError : 'errs'"
+                >
+                  <p>This field is required !!</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-group row mt-2">
+              <label class="col-sm-3">State *</label>
+              <div class="col-sm-9">
+                <input
+                type="text"
+                class="form-control"
+                [ngClass]="geocodingForm.controls['state'].touched && geocodingForm.controls['state'].errors?.['required']?'box-error':''"
+                formControlName="state"
+                />
+                <div
+                  *ngIf="geocodingForm.controls['state'].touched && geocodingForm.controls['state'].errors?.['required']"
+                  [ngClass]="classError ? classError : 'errs'"
+                >
+                  <p>This field is required !!</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-group row mt-2">
+              <label class="col-sm-3">Country *</label>
+              <div class="col-sm-9">
+                  <input
+                type="text"
+                class="form-control"
+                [ngClass]="geocodingForm.controls['country'].touched && geocodingForm.controls['country'].errors?.['required']?'box-error':''"
+                formControlName="country"
+              />
+              <div
+                *ngIf="geocodingForm.controls['country'].touched && geocodingForm.controls['country'].errors?.['required']"
+                [ngClass]="classError ? classError : 'errs'"
+              >
+                <p>This field is required !!</p>
+              </div>
+            </div>
+            </div>
+            <div class="form-group mt-2">
+              <button
+                class="btn btn-primary search-button"
+                type="submit"
+                [disabled]="geocodingForm.invalid"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div *ngIf="WeatherData!=null" class=" form-container float-child ">
+        <h2 id="airpollution" class = "center-content">Coordinates by location name
+        </h2>
+        <table class=" form-container center-content float-res" aria-describedby="airpollution">
+          <tbody>
+            <tr>
+              <th scope="row">English name</th>
+              <td>{{ WeatherData[0].local_names.en}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Latitude</th>
+              <td>{{ WeatherData[0].lat}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Longitude</th>
+              <td>{{  WeatherData[0].lon}}</td>
+            </tr>
+            <tr>
+              
+          </tbody>
+        </table>
+        <app-map [longitude]='WeatherData[0].long' [latitude]="WeatherData[0].lat"></app-map>
+      </div>
+    
+  
+  </div>
+  
+   

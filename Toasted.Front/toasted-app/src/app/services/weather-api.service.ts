@@ -249,4 +249,9 @@ export class WeatherAPIService {
     let url = 'https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=' + lat + '&lon=' + lon + '&appid=' + environment.openWeatherKey;
     return this.http.get(url);
   }
+
+  getGeoCoding(city:String, state:String,country:String): Observable<any> {
+    let url = 'http://api.openweathermap.org/geo/1.0/direct?q='+city+',' +state+','+country+'&limit=1&appid='+ environment.openWeatherKey;
+    return this.http.get(url);
+  }
 }

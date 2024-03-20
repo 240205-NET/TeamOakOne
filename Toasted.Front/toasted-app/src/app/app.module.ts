@@ -8,10 +8,12 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { FiveDayWeatherComponent } from './five-day-weather/five-day-weather.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WeatherDetailsComponent } from './weather-details/weather-details.component';
 import { GoogleMapsModule } from '@angular/google-maps';import { AirPollutionComponent } from './air-pollution/air-pollution.component';
+import { GeocodingComponent } from './geocoding/geocoding.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,15 @@ import { GoogleMapsModule } from '@angular/google-maps';import { AirPollutionCom
     PageNotFoundComponent,
     WeatherDetailsComponent,
     AirPollutionComponent,
+    GeocodingComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     GoogleMapsModule,
   ],
   providers: [Title],
