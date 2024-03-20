@@ -54,9 +54,9 @@
             class="circular-weather-display"
             [ngClass]="isDay ? 'day' : 'night'"
           >
-            <div class="temp">{{ weatherInfo.main?.temp }}&deg;C</div>
+            <div class="temp">{{ weatherInfo.main.temp }}&deg;C</div>
             <div class="feels_like">
-              Feels Like {{ weatherInfo.main?.feels_like }}&deg;
+              Feels Like {{ weatherInfo.main.feels_like }}&deg;
             </div>
           </div>
           <div class="basic-info">
@@ -81,11 +81,11 @@
             <tbody>
               <tr>
                 <th scope="row">Humidity</th>
-                <td>{{ weatherInfo.main?.humidity }}%</td>
+                <td>{{ weatherInfo.main.humidity }}%</td>
               </tr>
               <tr>
                 <th scope="row">Pressure</th>
-                <td>{{ weatherInfo.main?.pressure }} hPa</td>
+                <td>{{ weatherInfo.main.pressure }} hPa</td>
               </tr>
               <tr>
                 <th scope="row">Sunrise</th>
@@ -97,11 +97,11 @@
               </tr>
               <tr>
                 <th scope="row">Max Temperature</th>
-                <td>{{ weatherInfo.main?.temp_max }}&deg;c</td>
+                <td>{{ weatherInfo.main.temp_max }}&deg;c</td>
               </tr>
               <tr>
                 <th scope="row">Min Temperature</th>
-                <td>{{ weatherInfo.main?.temp_min }}&deg;c</td>
+                <td>{{ weatherInfo.main.temp_min }}&deg;c</td>
               </tr>
               <tr>
                 <th scope="row">Visibility</th>
