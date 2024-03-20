@@ -1,0 +1,59 @@
+/*.weather-widgets-container[draggable] {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  resize: both;
+  overflow: auto;
+}
+
+.weather-widgets-container[draggable] .draggable-handle {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background-color: #2196F3;
+  cursor: move;
+}
+
+
+.weather-widgets-container[resizable] {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  resize: both;
+  overflow: auto;
+}
+
+.weather-widgets-container[resizable] .resize-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #2196F3;
+  bottom: 0;
+  right: 0;
+  cursor: se-resize; 
+}
+
+
+.weather-widgets-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+  
+.weather-widgets-container .cdk-drag {
+   cursor: move;
+}
+*/
+.weather-widgets-container {
+    position: relative; /* Ensure widgets are positioned relative to this container */
+    width: 100%; /* Ensure the container takes the full width */
+    height: 100vh; /* Set a fixed height for the container */
+  }
+  
+  .weather-widgets-container .widget {
+    position: absolute;
+    cursor: move;
+  }
